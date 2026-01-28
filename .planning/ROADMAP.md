@@ -47,12 +47,14 @@ Plans:
   2. Temperature bracket markets exist for all 4 cities (NYC, Chicago, Miami, Austin)
   3. Markets resolve automatically at scheduled time using median of aggregated data
   4. Stale or conflicting data triggers fallback mechanism (not silent failure)
-**Plans**: 3 plans in 2 waves
+**Plans**: 5 plans in 2 waves
 
 Plans:
-- [ ] 02-01-PLAN.md — Add market resolution to contracts, city coordinates library
-- [ ] 02-02-PLAN.md — Oracle service setup with 3 weather API clients
-- [ ] 02-03-PLAN.md — Weather aggregation, blockchain resolution, scheduler integration
+- [x] 02-01-PLAN.md — Add market resolution to contracts, city coordinates library
+- [x] 02-02-PLAN.md — Oracle service setup with 3 weather API clients
+- [x] 02-03-PLAN.md — Weather aggregation, blockchain resolution, scheduler integration
+- [x] 02-04-PLAN.md — CreateTemperatureMarkets script for 4 cities x 5 brackets
+- [ ] 02-05-PLAN.md — Market discovery service (gap closure)
 
 ### Phase 3: Indexing & Backend
 **Goal**: Frontend has efficient GraphQL API for markets and positions, with order matching service
@@ -125,7 +127,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Smart Contract Foundation | 3/3 | Complete | 2026-01-28 |
-| 2. Oracle Infrastructure | 0/3 | Not started | - |
+| 2. Oracle Infrastructure | 4/5 | In progress | - |
 | 3. Indexing & Backend | 0/3 | Not started | - |
 | 4. Web Frontend MVP | 0/3 | Not started | - |
 | 5. Social & Profiles | 0/3 | Not started | - |
@@ -133,4 +135,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28 — Phase 2 planned*
+*Last updated: 2026-01-28 — Phase 2 gap closure plan added (02-05)*
