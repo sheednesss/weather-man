@@ -31,12 +31,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can withdraw USDC from the contract back to their wallet
   4. User can buy YES/NO outcome shares on a test market
   5. User can sell YES/NO outcome shares back to the market
-**Plans**: TBD
+**Plans**: 3 plans in 3 waves
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Foundry setup, CTF interfaces, Vault deposit/withdraw
+- [ ] 01-02-PLAN.md — MarketFactory and PredictionMarket trading contracts
+- [ ] 01-03-PLAN.md — Deploy to Base Sepolia and verify
 
 ### Phase 2: Oracle Infrastructure
 **Goal**: Markets resolve automatically using aggregated weather data from multiple API sources
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Smart Contract Foundation | 0/3 | Not started | - |
+| 1. Smart Contract Foundation | 0/3 | Planned | - |
 | 2. Oracle Infrastructure | 0/3 | Not started | - |
 | 3. Indexing & Backend | 0/3 | Not started | - |
 | 4. Web Frontend MVP | 0/3 | Not started | - |
