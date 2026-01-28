@@ -101,15 +101,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| WALLET-01 | Phase 1 | Pending |
-| WALLET-02 | Phase 1 | Pending |
-| WALLET-03 | Phase 1 | Pending |
-| TRADE-01 | Phase 1 | Pending |
-| TRADE-02 | Phase 1 | Pending |
-| TRADE-03 | Phase 1 | Pending |
-| TRADE-04 | Phase 1 | Pending |
-| PORT-01 | Phase 1 | Pending |
-| PORT-02 | Phase 1 | Pending |
+| WALLET-01 | Phase 1, 4 | Contract Ready (UI in Phase 4) |
+| WALLET-02 | Phase 1 | Contract Ready |
+| WALLET-03 | Phase 1 | Contract Ready |
+| TRADE-01 | Phase 1 | Contract Ready |
+| TRADE-02 | Phase 1 | Contract Ready |
+| TRADE-03 | Phase 1 | Contract Ready |
+| TRADE-04 | Phase 1 | Contract Ready |
+| PORT-01 | Phase 1 | Contract Ready |
+| PORT-02 | Phase 1 | Contract Ready |
 | MARKET-01 | Phase 3 | Pending |
 | MARKET-02 | Phase 2 | Pending |
 | MARKET-03 | Phase 2 | Pending |
@@ -141,4 +141,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 after roadmap creation*
+*Last updated: 2026-01-28 — Phase 1 contract layer complete*

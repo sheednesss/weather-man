@@ -12,7 +12,7 @@ Weather Man delivers a fully on-chain weather prediction market in 6 phases. The
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Smart Contract Foundation** - Core contracts for markets, trading, and USDC custody
+- [x] **Phase 1: Smart Contract Foundation** - Core contracts for markets, trading, and USDC custody
 - [ ] **Phase 2: Oracle Infrastructure** - Weather data aggregation and automated market resolution
 - [ ] **Phase 3: Indexing & Backend** - Event indexing, API layer, and off-chain services
 - [ ] **Phase 4: Web Frontend MVP** - Trading interface, wallet connection, portfolio management
@@ -34,9 +34,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans in 3 waves
 
 Plans:
-- [ ] 01-01-PLAN.md — Foundry setup, CTF interfaces, Vault deposit/withdraw
-- [ ] 01-02-PLAN.md — MarketFactory and PredictionMarket trading contracts
-- [ ] 01-03-PLAN.md — Deploy to Base Sepolia and verify
+- [x] 01-01-PLAN.md — Foundry setup, CTF interfaces, Vault deposit/withdraw
+- [x] 01-02-PLAN.md — MarketFactory and PredictionMarket trading contracts
+- [x] 01-03-PLAN.md — Deploy to Base Sepolia and verify (testnet deployment deferred)
 
 ### Phase 2: Oracle Infrastructure
 **Goal**: Markets resolve automatically using aggregated weather data from multiple API sources
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Smart Contract Foundation | 0/3 | Planned | - |
+| 1. Smart Contract Foundation | 3/3 | Complete | 2026-01-28 |
 | 2. Oracle Infrastructure | 0/3 | Not started | - |
 | 3. Indexing & Backend | 0/3 | Not started | - |
 | 4. Web Frontend MVP | 0/3 | Not started | - |
@@ -133,4 +133,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28*
+*Last updated: 2026-01-28 — Phase 1 complete*
