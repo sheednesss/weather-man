@@ -101,44 +101,44 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| WALLET-01 | TBD | Pending |
-| WALLET-02 | TBD | Pending |
-| WALLET-03 | TBD | Pending |
-| TRADE-01 | TBD | Pending |
-| TRADE-02 | TBD | Pending |
-| TRADE-03 | TBD | Pending |
-| TRADE-04 | TBD | Pending |
-| PORT-01 | TBD | Pending |
-| PORT-02 | TBD | Pending |
-| MARKET-01 | TBD | Pending |
-| MARKET-02 | TBD | Pending |
-| MARKET-03 | TBD | Pending |
-| MARKET-04 | TBD | Pending |
-| MARKET-05 | TBD | Pending |
-| MARKET-06 | TBD | Pending |
-| MARKET-07 | TBD | Pending |
-| MARKET-08 | TBD | Pending |
-| WEATHER-01 | TBD | Pending |
-| WEATHER-02 | TBD | Pending |
-| PROFILE-01 | TBD | Pending |
-| PROFILE-02 | TBD | Pending |
-| LEADER-01 | TBD | Pending |
-| LEADER-02 | TBD | Pending |
-| SOCIAL-01 | TBD | Pending |
-| SOCIAL-02 | TBD | Pending |
-| SOCIAL-03 | TBD | Pending |
-| SOCIAL-04 | TBD | Pending |
-| PREDICT-01 | TBD | Pending |
-| GAME-01 | TBD | Pending |
-| GAME-02 | TBD | Pending |
-| PLAT-01 | TBD | Pending |
-| PLAT-02 | TBD | Pending |
+| WALLET-01 | Phase 1 | Pending |
+| WALLET-02 | Phase 1 | Pending |
+| WALLET-03 | Phase 1 | Pending |
+| TRADE-01 | Phase 1 | Pending |
+| TRADE-02 | Phase 1 | Pending |
+| TRADE-03 | Phase 1 | Pending |
+| TRADE-04 | Phase 1 | Pending |
+| PORT-01 | Phase 1 | Pending |
+| PORT-02 | Phase 1 | Pending |
+| MARKET-01 | Phase 3 | Pending |
+| MARKET-02 | Phase 2 | Pending |
+| MARKET-03 | Phase 2 | Pending |
+| MARKET-04 | Phase 2 | Pending |
+| MARKET-05 | Phase 2 | Pending |
+| MARKET-06 | Phase 2 | Pending |
+| MARKET-07 | Phase 2 | Pending |
+| MARKET-08 | Phase 3 | Pending |
+| WEATHER-01 | Phase 3 | Pending |
+| WEATHER-02 | Phase 3 | Pending |
+| PROFILE-01 | Phase 5 | Pending |
+| PROFILE-02 | Phase 5 | Pending |
+| LEADER-01 | Phase 6 | Pending |
+| LEADER-02 | Phase 6 | Pending |
+| SOCIAL-01 | Phase 5 | Pending |
+| SOCIAL-02 | Phase 5 | Pending |
+| SOCIAL-03 | Phase 5 | Pending |
+| SOCIAL-04 | Phase 5 | Pending |
+| PREDICT-01 | Phase 5 | Pending |
+| GAME-01 | Phase 6 | Pending |
+| GAME-02 | Phase 6 | Pending |
+| PLAT-01 | Phase 4 | Pending |
+| PLAT-02 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 32 total
-- Mapped to phases: 0
-- Unmapped: 32 ⚠️
+- Mapped to phases: 32
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 after initial definition*
+*Last updated: 2026-01-28 after roadmap creation*
