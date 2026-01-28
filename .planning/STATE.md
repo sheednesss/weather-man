@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 2 of 6 (Oracle Infrastructure) - IN PROGRESS
-Plan: 2 of 4 in current phase
+Plan: 1 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-28 - Completed 02-02-PLAN.md
+Last activity: 2026-01-28 - Completed 02-01-PLAN.md
 
-Progress: [===========         ] 57%
+Progress: [====                ] 22%
 
 ## Performance Metrics
 
 **Velocity:**
 - Total plans completed: 4
-- Average duration: 3.8 min
-- Total execution time: 0.25 hours
+- Average duration: 4.3 min
+- Total execution time: 0.29 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
-| 02-oracle-infrastructure | 1 | 3 min | 3.0 min |
+| 02-oracle-infrastructure | 1 | 6 min | 6.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min), 01-02 (5 min), 01-03 (3 min), 02-02 (3 min)
-- Trend: Accelerating
+- Last 5 plans: 01-01 (5 min), 01-02 (5 min), 01-03 (3 min), 02-01 (6 min)
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -54,9 +54,9 @@ Recent decisions affecting current work:
 - [01-02]: Market keeps opposite tokens from splitPosition to enable sells
 - [01-03]: Testnet deployment deferred - can be done later when wallet is funded
 - [01-03]: SimpleConditionalTokens created as MVP alternative to Gnosis CTF
-- [02-02]: Used axios-retry with 3 retries and exponential backoff for all API calls
-- [02-02]: Open-Meteo requires no API key (public endpoint)
-- [02-02]: All weather providers return null on failure (never throw)
+- [02-01]: Coordinates scaled by 10000 in int32 for precision without floating point
+- [02-01]: Resolution flow: factory calls CTF.reportPayouts then market.setResolved
+- [02-01]: AlreadyResolved error (renamed from MarketResolved to avoid event conflict)
 
 ### Pending Todos
 
@@ -68,8 +68,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-28T21:07:45Z
-Stopped at: Completed 02-02-PLAN.md (Oracle service setup)
+Last session: 2026-01-28T21:11:32Z
+Stopped at: Completed 02-01-PLAN.md (Resolution foundation)
 Resume file: None
 
 ## Phase 1 Summary
@@ -84,3 +84,11 @@ Resume file: None
 - PositionLib.sol - CTF position ID calculations
 
 **Deferred:** Testnet deployment (scripts ready, needs funded wallet)
+
+## Phase 2 Progress
+
+**Plan 02-01 Complete:** Market resolution foundation
+- MarketFactory.resolveMarket() for oracle-driven resolution
+- CityLib with coordinates for 4 cities (NYC, Chicago, Miami, Austin)
+- 8 resolution tests, all 49 tests passing
+- Ready for oracle service implementation
