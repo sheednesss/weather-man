@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** Users can stake real money on weather predictions and build reputation as accurate forecasters
-**Current focus:** Phase 1 - Smart Contract Foundation
+**Current focus:** Phase 2 - Oracle Infrastructure
 
 ## Current Position
 
-Phase: 1 of 6 (Smart Contract Foundation) - COMPLETE
-Plan: 3 of 3 in current phase
-Status: Phase complete, ready for Phase 2
-Last activity: 2026-01-28 - Phase 1 verified and complete
+Phase: 2 of 6 (Oracle Infrastructure) - IN PROGRESS
+Plan: 2 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-28 - Completed 02-02-PLAN.md
 
-Progress: [====                ] 17%
+Progress: [===========         ] 57%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 4.3 min
-- Total execution time: 0.22 hours
+- Total plans completed: 4
+- Average duration: 3.8 min
+- Total execution time: 0.25 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
+| 02-oracle-infrastructure | 1 | 3 min | 3.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5 min), 01-02 (5 min), 01-03 (3 min)
-- Trend: Stable
+- Last 5 plans: 01-01 (5 min), 01-02 (5 min), 01-03 (3 min), 02-02 (3 min)
+- Trend: Accelerating
 
 *Updated after each plan completion*
 
@@ -53,6 +54,9 @@ Recent decisions affecting current work:
 - [01-02]: Market keeps opposite tokens from splitPosition to enable sells
 - [01-03]: Testnet deployment deferred - can be done later when wallet is funded
 - [01-03]: SimpleConditionalTokens created as MVP alternative to Gnosis CTF
+- [02-02]: Used axios-retry with 3 retries and exponential backoff for all API calls
+- [02-02]: Open-Meteo requires no API key (public endpoint)
+- [02-02]: All weather providers return null on failure (never throw)
 
 ### Pending Todos
 
@@ -64,8 +68,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-28
-Stopped at: Phase 1 complete - ready for Phase 2 (Oracle Infrastructure)
+Last session: 2026-01-28T21:07:45Z
+Stopped at: Completed 02-02-PLAN.md (Oracle service setup)
 Resume file: None
 
 ## Phase 1 Summary
