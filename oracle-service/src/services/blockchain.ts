@@ -1,7 +1,15 @@
 import { ethers, Contract, Wallet, JsonRpcProvider } from 'ethers';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import { env } from '../config/env.js';
 import { logger } from '../utils/logger.js';
-import MarketFactoryABI from '../abis/MarketFactory.json' with { type: 'json' };
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const MarketFactoryABI = JSON.parse(
+  readFileSync(join(__dirname, '../abis/MarketFactory.json'), 'utf-8')
+);
 
 let provider: JsonRpcProvider | null = null;
 let wallet: Wallet | null = null;
