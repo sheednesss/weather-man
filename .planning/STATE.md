@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 2 of 6 (Oracle Infrastructure) - IN PROGRESS
-Plan: 4 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-28 - Completed 02-04-PLAN.md
+Last activity: 2026-01-28 - Completed 02-03-PLAN.md
 
-Progress: [=======             ] 39%
+Progress: [======              ] 33%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 4.0 min
-- Total execution time: 0.47 hours
+- Total plans completed: 6
+- Average duration: 4.2 min
+- Total execution time: 0.42 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
-| 02-oracle-infrastructure | 4 | 15 min | 3.8 min |
+| 02-oracle-infrastructure | 3 | 12 min | 4.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (5 min), 01-03 (3 min), 02-01 (6 min), 02-02 (3 min), 02-04 (3 min)
+- Last 5 plans: 01-03 (3 min), 02-01 (6 min), 02-02 (3 min), 02-03 (4 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -57,9 +57,10 @@ Recent decisions affecting current work:
 - [02-01]: Coordinates scaled by 10000 in int32 for precision without floating point
 - [02-01]: Resolution flow: factory calls CTF.reportPayouts then market.setResolved
 - [02-01]: AlreadyResolved error (renamed from MarketResolved to avoid event conflict)
-- [02-04]: QuestionId encoding packs 6 fields into bytes32: market type, city, bounds, time, nonce
-- [02-04]: Standard 5 temperature brackets: Below 70, 70-80, 80-85, 85-90, 90+
-- [02-04]: Script creates all 20 markets (4 cities x 5 brackets) in single transaction
+- [02-03]: Median temperature calculation (more resistant to outliers than mean)
+- [02-03]: 2 of 3 weather source quorum (balance between reliability and availability)
+- [02-03]: fs.readFileSync for ABI import (Node 18 compatibility vs import attributes)
+- [02-03]: 1 minute delay after resolution time (ensures weather APIs have updated data)
 
 ### Pending Todos
 
@@ -71,8 +72,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-28T21:24:37Z
-Stopped at: Completed 02-04-PLAN.md (Temperature bracket markets)
+Last session: 2026-01-28T21:18:58Z
+Stopped at: Completed 02-03-PLAN.md (Weather aggregation and blockchain resolution)
 Resume file: None
 
 ## Phase 1 Summary
@@ -102,14 +103,9 @@ Resume file: None
 - Consistent TemperatureReading interface
 - Ready for blockchain integration
 
-**Plan 02-03 Complete:** Blockchain integration service
-- ethers.js integration with MarketFactory
-- Weather aggregation service using 3 providers
-- Full resolution workflow implementation
-- Ready for end-to-end testing
-
-**Plan 02-04 Complete:** Temperature bracket markets
-- QuestionLib for encoding/decoding market questions
-- CreateTemperatureMarkets script for 20 markets (4 cities x 5 brackets)
-- 5 tests verifying encoding and oracle parsing
-- MARKET-03 requirement satisfied
+**Plan 02-03 Complete:** Weather aggregation and blockchain resolution
+- Weather service aggregates 3 APIs with median calculation
+- Blockchain service resolves markets on-chain via ethers.js
+- Scheduler coordinates resolution at configured times
+- Complete oracle service with health checks
+- Ready for market creation integration
