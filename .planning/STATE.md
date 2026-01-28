@@ -9,29 +9,29 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 
 ## Current Position
 
-Phase: 2 of 6 (Oracle Infrastructure) - IN PROGRESS
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-28 - Completed 02-03-PLAN.md
+Phase: 2 of 6 (Oracle Infrastructure) - COMPLETE
+Plan: 5 of 5 in current phase (gap closure plan)
+Status: Phase complete
+Last activity: 2026-01-28 - Completed 02-05-PLAN.md (gap closure)
 
-Progress: [======              ] 33%
+Progress: [========            ] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 4.2 min
-- Total execution time: 0.42 hours
+- Total plans completed: 7
+- Average duration: 4.1 min
+- Total execution time: 0.48 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
-| 02-oracle-infrastructure | 3 | 12 min | 4.0 min |
+| 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (3 min), 02-01 (6 min), 02-02 (3 min), 02-03 (4 min)
+- Last 5 plans: 02-01 (6 min), 02-02 (3 min), 02-03 (4 min), 02-05 (4 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -61,6 +61,9 @@ Recent decisions affecting current work:
 - [02-03]: 2 of 3 weather source quorum (balance between reliability and availability)
 - [02-03]: fs.readFileSync for ABI import (Node 18 compatibility vs import attributes)
 - [02-03]: 1 minute delay after resolution time (ensures weather APIs have updated data)
+- [02-05]: Read-only contract queries use provider directly (no wallet for discovery)
+- [02-05]: Filter past-resolution markets during discovery
+- [02-05]: Graceful handling when MARKET_FACTORY_ADDRESS not configured
 
 ### Pending Todos
 
@@ -72,8 +75,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-28T21:18:58Z
-Stopped at: Completed 02-03-PLAN.md (Weather aggregation and blockchain resolution)
+Last session: 2026-01-28T21:38:10Z
+Stopped at: Completed 02-05-PLAN.md (Market discovery gap closure)
 Resume file: None
 
 ## Phase 1 Summary
@@ -89,23 +92,33 @@ Resume file: None
 
 **Deferred:** Testnet deployment (scripts ready, needs funded wallet)
 
-## Phase 2 Progress
+## Phase 2 Summary
+
+**Status:** Complete (gaps closed)
+**Oracle Service:** Fully operational TypeScript service
 
 **Plan 02-01 Complete:** Market resolution foundation
 - MarketFactory.resolveMarket() for oracle-driven resolution
 - CityLib with coordinates for 4 cities (NYC, Chicago, Miami, Austin)
 - 8 resolution tests, all 49 tests passing
-- Ready for oracle service implementation
 
 **Plan 02-02 Complete:** Oracle service setup
 - TypeScript project with weather provider abstraction
 - 3 weather API clients (OpenWeatherMap, Open-Meteo, Tomorrow.io)
 - Consistent TemperatureReading interface
-- Ready for blockchain integration
 
 **Plan 02-03 Complete:** Weather aggregation and blockchain resolution
 - Weather service aggregates 3 APIs with median calculation
 - Blockchain service resolves markets on-chain via ethers.js
 - Scheduler coordinates resolution at configured times
-- Complete oracle service with health checks
-- Ready for market creation integration
+
+**Plan 02-05 Complete:** Market discovery (gap closure)
+- discoverMarkets() queries MarketCreated events from chain
+- questionId decoding extracts city, bounds, resolution time
+- Automatic registration of discovered markets with scheduler
+- Gap 1 CLOSED: Oracle now discovers and schedules markets
+
+**Gap 2 Deferred:** Market deployment (consistent with PROJECT decision [01-03])
+- CreateTemperatureMarkets script ready
+- Deployment requires funded testnet wallet
+- Can be executed anytime without code changes
