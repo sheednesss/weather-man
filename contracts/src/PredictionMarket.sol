@@ -51,7 +51,7 @@ contract PredictionMarket is ReentrancyGuard {
     event MarketResolved(bytes32 indexed conditionId);
 
     /// @notice Thrown when market has been resolved
-    error MarketResolved();
+    error AlreadyResolved();
 
     /// @notice Thrown when caller is not the factory
     error OnlyFactory();
@@ -89,7 +89,7 @@ contract PredictionMarket is ReentrancyGuard {
     function buy(uint256 amount, bool isYes) external nonReentrant {
         // CHECKS
         if (amount == 0) revert ZeroAmount();
-        if (resolved) revert MarketResolved();
+        if (resolved) revert AlreadyResolved();
 
         // INTERACTIONS: Pull USDC from user
         usdc.safeTransferFrom(msg.sender, address(this), amount);
@@ -142,7 +142,7 @@ contract PredictionMarket is ReentrancyGuard {
     function sell(uint256 amount, bool isYes) external nonReentrant {
         // CHECKS
         if (amount == 0) revert ZeroAmount();
-        if (resolved) revert MarketResolved();
+        if (resolved) revert AlreadyResolved();
 
         uint256 userPositionId = isYes ? getYesPositionId() : getNoPositionId();
         uint256 userBalance = conditionalTokens.balanceOf(msg.sender, userPositionId);

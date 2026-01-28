@@ -108,6 +108,7 @@ contract MockConditionalTokens is IConditionalTokens {
     ) external override {
         // Calculate condition ID (assumes msg.sender is oracle)
         bytes32 conditionId = getConditionId(msg.sender, questionId, payouts.length);
+        require(_payoutDenominators[conditionId] == 0, "Already resolved");
         uint256 denominator = 0;
         for (uint256 i = 0; i < payouts.length; i++) {
             _payoutNumerators[conditionId][i + 1] = payouts[i]; // index sets are 1-indexed
