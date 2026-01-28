@@ -31,11 +31,17 @@ contract MarketFactory is Ownable {
         uint256 resolutionTime
     );
 
+    /// @notice Emitted when a market is resolved
+    event MarketResolved(bytes32 indexed conditionId, uint256[] payouts);
+
     /// @notice Thrown when trying to create a market that already exists
     error MarketAlreadyExists();
 
     /// @notice Thrown when resolution time is invalid
     error InvalidResolutionTime();
+
+    /// @notice Thrown when market is not found
+    error MarketNotFound();
 
     /// @notice Creates a new MarketFactory
     /// @param _conditionalTokens The CTF contract address
@@ -79,6 +85,7 @@ contract MarketFactory is Ownable {
         // Deploy new PredictionMarket
         PredictionMarket market = new PredictionMarket(
             conditionId,
+            questionId,
             address(conditionalTokens),
             address(usdc),
             address(this)
@@ -98,5 +105,32 @@ contract MarketFactory is Ownable {
     /// @return The market address, or zero if not found
     function getMarket(bytes32 conditionId) external view returns (address) {
         return markets[conditionId];
+    }
+
+    /// @notice Resolves a market by reporting payouts to CTF (owner only)
+    /// @param conditionId The condition ID of the market to resolve
+    /// @param payouts Array of payout numerators for each outcome (e.g., [1,0] for YES wins)
+    /// @dev This function acts as the oracle for the condition
+    function resolveMarket(
+        bytes32 conditionId,
+        uint256[] calldata payouts
+    ) external onlyOwner {
+        // Look up market address
+        address marketAddress = markets[conditionId];
+        if (marketAddress == address(0)) revert MarketNotFound();
+
+        // Get the market instance
+        PredictionMarket market = PredictionMarket(marketAddress);
+
+        // Get the question ID from the market
+        bytes32 marketQuestionId = market.questionId();
+
+        // Report payouts to CTF (this contract is the oracle)
+        conditionalTokens.reportPayouts(marketQuestionId, payouts);
+
+        // Mark market as resolved
+        market.setResolved();
+
+        emit MarketResolved(conditionId, payouts);
     }
 }

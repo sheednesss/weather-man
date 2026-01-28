@@ -22,6 +22,9 @@ contract PredictionMarket is ReentrancyGuard {
     /// @notice The condition ID for this market's question
     bytes32 public immutable conditionId;
 
+    /// @notice The question ID used to prepare the condition
+    bytes32 public immutable questionId;
+
     /// @notice The factory that created this market
     address public immutable factory;
 
@@ -44,8 +47,14 @@ contract PredictionMarket is ReentrancyGuard {
     /// @notice Emitted when a user sells outcome shares
     event Sell(address indexed user, uint256 amount, bool indexed isYes);
 
+    /// @notice Emitted when market is resolved
+    event MarketResolved(bytes32 indexed conditionId);
+
     /// @notice Thrown when market has been resolved
     error MarketResolved();
+
+    /// @notice Thrown when caller is not the factory
+    error OnlyFactory();
 
     /// @notice Thrown when user has insufficient shares
     error InsufficientShares();
@@ -55,16 +64,19 @@ contract PredictionMarket is ReentrancyGuard {
 
     /// @notice Creates a new prediction market
     /// @param _conditionId The CTF condition ID for this market
+    /// @param _questionId The question ID used to prepare the condition
     /// @param _conditionalTokens The CTF contract address
     /// @param _usdc The USDC token address
     /// @param _factory The factory that created this market
     constructor(
         bytes32 _conditionId,
+        bytes32 _questionId,
         address _conditionalTokens,
         address _usdc,
         address _factory
     ) {
         conditionId = _conditionId;
+        questionId = _questionId;
         conditionalTokens = IConditionalTokens(_conditionalTokens);
         usdc = IERC20(_usdc);
         factory = _factory;
@@ -235,6 +247,14 @@ contract PredictionMarket is ReentrancyGuard {
     /// @return The combined pool value
     function getTotalPool() external view returns (uint256) {
         return yesPool + noPool;
+    }
+
+    /// @notice Marks the market as resolved (factory only)
+    /// @dev Called by factory after reporting payouts to CTF
+    function setResolved() external {
+        if (msg.sender != factory) revert OnlyFactory();
+        resolved = true;
+        emit MarketResolved(conditionId);
     }
 
     /// @notice Internal helper to transfer outcome tokens to user
