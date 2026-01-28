@@ -13,7 +13,7 @@ Weather Man delivers a fully on-chain weather prediction market in 6 phases. The
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Smart Contract Foundation** - Core contracts for markets, trading, and USDC custody
-- [ ] **Phase 2: Oracle Infrastructure** - Weather data aggregation and automated market resolution
+- [x] **Phase 2: Oracle Infrastructure** - Weather data aggregation and automated market resolution
 - [ ] **Phase 3: Indexing & Backend** - Event indexing, API layer, and off-chain services
 - [ ] **Phase 4: Web Frontend MVP** - Trading interface, wallet connection, portfolio management
 - [ ] **Phase 5: Social & Profiles** - User profiles, following system, comments, sharing
@@ -54,7 +54,7 @@ Plans:
 - [x] 02-02-PLAN.md — Oracle service setup with 3 weather API clients
 - [x] 02-03-PLAN.md — Weather aggregation, blockchain resolution, scheduler integration
 - [x] 02-04-PLAN.md — CreateTemperatureMarkets script for 4 cities x 5 brackets
-- [ ] 02-05-PLAN.md — Market discovery service (gap closure)
+- [x] 02-05-PLAN.md — Market discovery service (gap closure)
 
 ### Phase 3: Indexing & Backend
 **Goal**: Frontend has efficient GraphQL API for markets and positions, with order matching service
@@ -127,7 +127,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Smart Contract Foundation | 3/3 | Complete | 2026-01-28 |
-| 2. Oracle Infrastructure | 4/5 | In progress | - |
+| 2. Oracle Infrastructure | 5/5 | Complete | 2026-01-28 |
 | 3. Indexing & Backend | 0/3 | Not started | - |
 | 4. Web Frontend MVP | 0/3 | Not started | - |
 | 5. Social & Profiles | 0/3 | Not started | - |
@@ -135,4 +135,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28 — Phase 2 gap closure plan added (02-05)*
+*Last updated: 2026-01-28 — Phase 2 complete (5/5 plans, goal verified)*
