@@ -1,10 +1,13 @@
 import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import '@rainbow-me/rainbowkit/styles.css'
 import { config } from './lib/wagmi'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { Layout } from './components/layout/Layout'
+import { Home } from './pages/Home'
+import { Markets } from './pages/Markets'
+import { Portfolio } from './pages/Portfolio'
 
 const queryClient = new QueryClient()
 
@@ -14,10 +17,13 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
           <BrowserRouter>
-            <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center gap-8">
-              <h1 className="text-4xl font-bold">Weather Man</h1>
-              <ConnectButton />
-            </div>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="markets" element={<Markets />} />
+                <Route path="portfolio" element={<Portfolio />} />
+              </Route>
+            </Routes>
           </BrowserRouter>
         </RainbowKitProvider>
       </QueryClientProvider>
