@@ -1,5 +1,7 @@
 import { Hono } from "hono";
-import { ponder } from "ponder:registry";
+import { graphql } from "ponder";
+import { db } from "ponder:api";
+import schema from "ponder:schema";
 import { getWeather, getAllWeather, getCacheStats, type WeatherData } from "../lib/weather.js";
 
 /**
@@ -12,12 +14,9 @@ import { getWeather, getAllWeather, getCacheStats, type WeatherData } from "../l
 
 const app = new Hono();
 
-/**
- * Health check endpoint
- */
-app.get("/health", (c) => {
-  return c.json({ status: "ok", timestamp: new Date().toISOString() });
-});
+// Mount Ponder's auto-generated GraphQL API at /graphql and root
+app.use("/graphql", graphql({ db, schema }));
+app.use("/", graphql({ db, schema }));
 
 /**
  * Get weather for a single city
@@ -64,9 +63,8 @@ app.get("/weather", async (c) => {
  */
 app.get("/markets-with-weather", async (c) => {
   try {
-    // Get all markets from Ponder's database
-    const { db } = ponder;
-    const markets = await db.sql`SELECT * FROM markets ORDER BY "createdAt" DESC`;
+    // Get all markets from Ponder's database using Drizzle
+    const markets = await db.select().from(schema.markets).orderBy(schema.markets.createdAt);
 
     // Fetch weather for all cities in parallel
     const weatherData = await getAllWeather();
@@ -76,7 +74,7 @@ app.get("/markets-with-weather", async (c) => {
     }
 
     // Enrich markets with weather data
-    const marketsWithWeather = markets.rows.map((market) => {
+    const marketsWithWeather = markets.map((market) => {
       const cityId = typeof market.cityId === 'number' ? market.cityId : parseInt(String(market.cityId), 10);
       const weather = weatherByCity.get(cityId);
 

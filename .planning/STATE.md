@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** Users can stake real money on weather predictions and build reputation as accurate forecasters
-**Current focus:** Phase 3 - Indexing & Backend
+**Current focus:** Phase 4 - Web Frontend MVP
 
 ## Current Position
 
-Phase: 3 of 6 (Indexing & Backend)
-Plan: 2 of 3 in current phase
-Status: In progress
-Last activity: 2026-01-29 - Completed 03-02-PLAN.md (Weather API integration)
+Phase: 4 of 6 (Web Frontend MVP)
+Plan: 0 of 3 in current phase
+Status: Ready to plan
+Last activity: 2026-01-29 - Completed Phase 3 (Indexing & Backend)
 
-Progress: [===========         ] 53%
+Progress: [============        ] 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 4.1 min
-- Total execution time: 0.62 hours
+- Total plans completed: 10
+- Average duration: 5.0 min
+- Total execution time: 0.83 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [===========         ] 53%
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
-| 03-indexing-backend | 2 | 9 min | 4.5 min |
+| 03-indexing-backend | 3 | 24 min | 8.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-03 (4 min), 02-05 (4 min), 03-01 (5 min), 03-02 (4 min)
-- Trend: Stable
+- Last 5 plans: 02-05 (4 min), 03-01 (5 min), 03-02 (4 min), 03-03 (15 min)
+- Trend: Stable (03-03 longer due to Node.js upgrade and debugging)
 
 *Updated after each plan completion*
 
@@ -79,7 +79,8 @@ None yet.
 
 ### Blockers/Concerns
 
-- Node.js version (18.13.0) below Ponder requirement (18.14+) - needs upgrade for runtime testing
+- Node.js version issue RESOLVED - installed fnm and Node 20.20.0 for Ponder
+- Testnet deployment still requires funded wallet (deferred from Phase 1)
 
 ## Session Continuity
 
@@ -131,9 +132,9 @@ Resume file: None
 - Deployment requires funded testnet wallet
 - Can be executed anytime without code changes
 
-## Phase 3 Summary (In Progress)
+## Phase 3 Summary
 
-**Status:** 2/3 plans complete
+**Status:** Complete (3/3 plans, all success criteria verified)
 
 **Plan 03-01 Complete:** Ponder indexer setup
 - indexer-api/ project with Ponder 0.16.2
@@ -148,6 +149,13 @@ Resume file: None
 - Custom Hono routes: /weather/:cityId, /weather, /markets-with-weather
 - WMO weather code mapping for descriptions
 
+**Plan 03-03 Complete:** API documentation and verification
+- Comprehensive README.md with all API documentation
+- GraphQL middleware properly configured
+- All endpoints verified: GraphQL, weather, markets-with-weather
+- Cache behavior confirmed (126ms → 17ms on cache hit)
+- Error handling verified (400 for invalid cityId)
+
 **Key Files:**
 - indexer-api/ponder.config.ts - Chain/contract configuration
 - indexer-api/ponder.schema.ts - Database schema
@@ -155,6 +163,11 @@ Resume file: None
 - indexer-api/src/PredictionMarket.ts - Buy/Sell handlers
 - indexer-api/src/lib/weather.ts - Weather fetching with caching
 - indexer-api/src/lib/cities.ts - City coordinates
-- indexer-api/src/api/index.ts - Custom Hono routes
+- indexer-api/src/api/index.ts - Custom Hono routes + GraphQL middleware
+- indexer-api/README.md - Complete API documentation
 
-**Next:** 03-03 API documentation and testing
+**Success Criteria Met:**
+- [x] GraphQL API returns markets with real-time pricing (yesPool/noPool)
+- [x] Markets can be sorted by volume (hot markets)
+- [x] Current weather displays for each market location
+- [x] Weather forecast displays for each market location
