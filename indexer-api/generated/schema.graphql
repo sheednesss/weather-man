@@ -1,0 +1,306 @@
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+scalar BigInt
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type ViewPageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+
+type Meta {
+  status: JSON
+}
+
+type Query {
+  markets(id: String!): markets
+  marketss(where: marketsFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): marketsPage!
+  trades(id: String!): trades
+  tradess(where: tradesFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): tradesPage!
+  positions(id: String!): positions
+  positionss(where: positionsFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): positionsPage!
+  _meta: Meta
+}
+
+type markets {
+  id: String!
+  conditionId: String!
+  questionId: String!
+  cityId: String!
+  lowerBound: Int!
+  upperBound: Int!
+  resolutionTime: BigInt!
+  createdAt: BigInt!
+  volume: BigInt!
+  yesPool: BigInt!
+  noPool: BigInt!
+  resolved: Boolean!
+  trades(where: tradesFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int, offset: Int): tradesPage
+}
+
+type tradesPage {
+  items: [trades!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type trades {
+  id: String!
+  marketId: String!
+  user: String!
+  amount: BigInt!
+  isYes: Boolean!
+  isBuy: Boolean!
+  timestamp: BigInt!
+  market: markets
+}
+
+input tradesFilter {
+  AND: [tradesFilter]
+  OR: [tradesFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  marketId: String
+  marketId_not: String
+  marketId_in: [String]
+  marketId_not_in: [String]
+  marketId_contains: String
+  marketId_not_contains: String
+  marketId_starts_with: String
+  marketId_ends_with: String
+  marketId_not_starts_with: String
+  marketId_not_ends_with: String
+  user: String
+  user_not: String
+  user_in: [String]
+  user_not_in: [String]
+  user_contains: String
+  user_not_contains: String
+  user_starts_with: String
+  user_ends_with: String
+  user_not_starts_with: String
+  user_not_ends_with: String
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  isYes: Boolean
+  isYes_not: Boolean
+  isYes_in: [Boolean]
+  isYes_not_in: [Boolean]
+  isBuy: Boolean
+  isBuy_not: Boolean
+  isBuy_in: [Boolean]
+  isBuy_not_in: [Boolean]
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+}
+
+type marketsPage {
+  items: [markets!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input marketsFilter {
+  AND: [marketsFilter]
+  OR: [marketsFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  conditionId: String
+  conditionId_not: String
+  conditionId_in: [String]
+  conditionId_not_in: [String]
+  conditionId_contains: String
+  conditionId_not_contains: String
+  conditionId_starts_with: String
+  conditionId_ends_with: String
+  conditionId_not_starts_with: String
+  conditionId_not_ends_with: String
+  questionId: String
+  questionId_not: String
+  questionId_in: [String]
+  questionId_not_in: [String]
+  questionId_contains: String
+  questionId_not_contains: String
+  questionId_starts_with: String
+  questionId_ends_with: String
+  questionId_not_starts_with: String
+  questionId_not_ends_with: String
+  cityId: String
+  cityId_not: String
+  cityId_in: [String]
+  cityId_not_in: [String]
+  cityId_contains: String
+  cityId_not_contains: String
+  cityId_starts_with: String
+  cityId_ends_with: String
+  cityId_not_starts_with: String
+  cityId_not_ends_with: String
+  lowerBound: Int
+  lowerBound_not: Int
+  lowerBound_in: [Int]
+  lowerBound_not_in: [Int]
+  lowerBound_gt: Int
+  lowerBound_lt: Int
+  lowerBound_gte: Int
+  lowerBound_lte: Int
+  upperBound: Int
+  upperBound_not: Int
+  upperBound_in: [Int]
+  upperBound_not_in: [Int]
+  upperBound_gt: Int
+  upperBound_lt: Int
+  upperBound_gte: Int
+  upperBound_lte: Int
+  resolutionTime: BigInt
+  resolutionTime_not: BigInt
+  resolutionTime_in: [BigInt]
+  resolutionTime_not_in: [BigInt]
+  resolutionTime_gt: BigInt
+  resolutionTime_lt: BigInt
+  resolutionTime_gte: BigInt
+  resolutionTime_lte: BigInt
+  createdAt: BigInt
+  createdAt_not: BigInt
+  createdAt_in: [BigInt]
+  createdAt_not_in: [BigInt]
+  createdAt_gt: BigInt
+  createdAt_lt: BigInt
+  createdAt_gte: BigInt
+  createdAt_lte: BigInt
+  volume: BigInt
+  volume_not: BigInt
+  volume_in: [BigInt]
+  volume_not_in: [BigInt]
+  volume_gt: BigInt
+  volume_lt: BigInt
+  volume_gte: BigInt
+  volume_lte: BigInt
+  yesPool: BigInt
+  yesPool_not: BigInt
+  yesPool_in: [BigInt]
+  yesPool_not_in: [BigInt]
+  yesPool_gt: BigInt
+  yesPool_lt: BigInt
+  yesPool_gte: BigInt
+  yesPool_lte: BigInt
+  noPool: BigInt
+  noPool_not: BigInt
+  noPool_in: [BigInt]
+  noPool_not_in: [BigInt]
+  noPool_gt: BigInt
+  noPool_lt: BigInt
+  noPool_gte: BigInt
+  noPool_lte: BigInt
+  resolved: Boolean
+  resolved_not: Boolean
+  resolved_in: [Boolean]
+  resolved_not_in: [Boolean]
+}
+
+type positions {
+  id: String!
+  marketId: String!
+  user: String!
+  isYes: Boolean!
+  shares: BigInt!
+  costBasis: BigInt!
+  market: markets
+}
+
+type positionsPage {
+  items: [positions!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input positionsFilter {
+  AND: [positionsFilter]
+  OR: [positionsFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  marketId: String
+  marketId_not: String
+  marketId_in: [String]
+  marketId_not_in: [String]
+  marketId_contains: String
+  marketId_not_contains: String
+  marketId_starts_with: String
+  marketId_ends_with: String
+  marketId_not_starts_with: String
+  marketId_not_ends_with: String
+  user: String
+  user_not: String
+  user_in: [String]
+  user_not_in: [String]
+  user_contains: String
+  user_not_contains: String
+  user_starts_with: String
+  user_ends_with: String
+  user_not_starts_with: String
+  user_not_ends_with: String
+  isYes: Boolean
+  isYes_not: Boolean
+  isYes_in: [Boolean]
+  isYes_not_in: [Boolean]
+  shares: BigInt
+  shares_not: BigInt
+  shares_in: [BigInt]
+  shares_not_in: [BigInt]
+  shares_gt: BigInt
+  shares_lt: BigInt
+  shares_gte: BigInt
+  shares_lte: BigInt
+  costBasis: BigInt
+  costBasis_not: BigInt
+  costBasis_in: [BigInt]
+  costBasis_not_in: [BigInt]
+  costBasis_gt: BigInt
+  costBasis_lt: BigInt
+  costBasis_gte: BigInt
+  costBasis_lte: BigInt
+}
