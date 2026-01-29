@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 5 of 6 (Social & Profiles)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-01-29 - Completed Phase 4 (Web Frontend MVP)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-29 - Completed 05-01-PLAN.md
 
-Progress: [===============     ] 75%
+Progress: [================    ] 79%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 4.6 min
-- Total execution time: 1.1 hours
+- Total plans completed: 15
+- Average duration: 4.7 min
+- Total execution time: 1.2 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [===============     ] 75%
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
 | 03-indexing-backend | 3 | 24 min | 8.0 min |
 | 04-web-frontend-mvp | 3 | 12 min | 4.0 min |
+| 05-social-profiles | 1 | 5 min | 5.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-03 (15 min), 04-01 (5 min), 04-02 (3 min), 04-03 (4 min)
+- Last 5 plans: 04-01 (5 min), 04-02 (3 min), 04-03 (4 min), 05-01 (5 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -84,6 +85,11 @@ Recent decisions affecting current work:
 - [04-03]: Price calculation: yesPool * 100 / totalPool (0-100 cents display)
 - [04-03]: P&L: currentValue - costBasis with percentage display
 - [04-03]: Query invalidation on successful trades (markets, positions, markets-with-weather)
+- [05-01]: Drizzle ORM for type-safe social database queries
+- [05-01]: SQLite via better-sqlite3 (separate from Ponder internal DB)
+- [05-01]: SIWE with viem verifyMessage for wallet authentication
+- [05-01]: Encrypted cookie sessions (stateless, no session store)
+- [05-01]: All addresses stored lowercase for consistency
 
 ### Pending Todos
 
@@ -98,7 +104,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed Phase 4 (Web Frontend MVP)
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
 
 ## Phase 1 Summary

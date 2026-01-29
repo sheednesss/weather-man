@@ -97,12 +97,13 @@ Plans:
   2. User can follow other forecasters and see feed of their predictions
   3. User can comment on markets and see other users' comments
   4. User can write explanation with prediction and share to Twitter/X
-**Plans**: TBD
+**Plans**: 4 plans in 3 waves
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
-- [ ] 05-03: TBD
+- [x] 05-01-PLAN.md — SQLite database with Drizzle ORM, SIWE authentication
+- [ ] 05-02-PLAN.md — Social API routes (profiles, follows, comments, predictions, feed)
+- [ ] 05-03-PLAN.md — Frontend SIWE authentication with useAuth hook and SignInButton
+- [ ] 05-04-PLAN.md — Social UI components (profiles, follows, comments, sharing)
 
 ### Phase 6: Gamification
 **Goal**: Users compete on leaderboards and earn recognition through streaks and achievements
@@ -130,9 +131,9 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Oracle Infrastructure | 5/5 | Complete | 2026-01-28 |
 | 3. Indexing & Backend | 3/3 | Complete | 2026-01-29 |
 | 4. Web Frontend MVP | 3/3 | Complete | 2026-01-29 |
-| 5. Social & Profiles | 0/3 | Not started | - |
+| 5. Social & Profiles | 1/4 | In progress | - |
 | 6. Gamification | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 — Phase 4 complete (Web Frontend MVP)*
+*Last updated: 2026-01-29 — Plan 05-01 complete*
