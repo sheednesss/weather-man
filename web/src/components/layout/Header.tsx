@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { SignInButton } from '@/features/auth/SignInButton'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -38,8 +39,9 @@ export function Header() {
             </NavLink>
           </div>
 
-          {/* Connect Button - always visible */}
-          <div className="flex items-center gap-4">
+          {/* Auth + Connect Buttons - always visible */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            <SignInButton />
             <div className="hidden sm:block">
               <ConnectButton />
             </div>
