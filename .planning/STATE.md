@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** Users can stake real money on weather predictions and build reputation as accurate forecasters
-**Current focus:** Phase 2 - Oracle Infrastructure
+**Current focus:** Phase 3 - Indexing & Backend
 
 ## Current Position
 
-Phase: 2 of 6 (Oracle Infrastructure) - COMPLETE
-Plan: 5 of 5 in current phase (gap closure plan)
-Status: Phase complete
-Last activity: 2026-01-28 - Completed 02-05-PLAN.md (gap closure)
+Phase: 3 of 6 (Indexing & Backend)
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-01-29 - Completed 03-01-PLAN.md (Ponder indexer setup)
 
-Progress: [========            ] 40%
+Progress: [==========          ] 47%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 4.1 min
-- Total execution time: 0.48 hours
+- Total plans completed: 8
+- Average duration: 4.2 min
+- Total execution time: 0.56 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [========            ] 40%
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
+| 03-indexing-backend | 1 | 5 min | 5.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (6 min), 02-02 (3 min), 02-03 (4 min), 02-05 (4 min)
+- Last 5 plans: 02-02 (3 min), 02-03 (4 min), 02-05 (4 min), 03-01 (5 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -64,6 +65,10 @@ Recent decisions affecting current work:
 - [02-05]: Read-only contract queries use provider directly (no wallet for discovery)
 - [02-05]: Filter past-resolution markets during discovery
 - [02-05]: Graceful handling when MARKET_FACTORY_ADDRESS not configured
+- [03-01]: Ponder 0.16.x over The Graph (TypeScript-native, auto-GraphQL)
+- [03-01]: Factory pattern discovers PredictionMarket addresses from MarketCreated events
+- [03-01]: Volume tracks cumulative activity (buys + sells) for hot markets ranking
+- [03-01]: QuestionId decoding extracts cityId, bounds directly from bytes32 using bit shifts
 
 ### Pending Todos
 
@@ -71,12 +76,12 @@ None yet.
 
 ### Blockers/Concerns
 
-None yet.
+- Node.js version (18.13.0) below Ponder requirement (18.14+) - needs upgrade for runtime testing
 
 ## Session Continuity
 
-Last session: 2026-01-28T21:38:10Z
-Stopped at: Completed 02-05-PLAN.md (Market discovery gap closure)
+Last session: 2026-01-29T03:21:28Z
+Stopped at: Completed 03-01-PLAN.md (Ponder indexer setup)
 Resume file: None
 
 ## Phase 1 Summary
@@ -122,3 +127,22 @@ Resume file: None
 - CreateTemperatureMarkets script ready
 - Deployment requires funded testnet wallet
 - Can be executed anytime without code changes
+
+## Phase 3 Summary (In Progress)
+
+**Status:** 1/3 plans complete
+
+**Plan 03-01 Complete:** Ponder indexer setup
+- indexer-api/ project with Ponder 0.16.2
+- Schema: markets, trades, positions with volume index
+- Event handlers: MarketCreated, Buy, Sell with volume tracking
+- Factory pattern auto-discovers new markets
+- GraphQL API auto-generated at http://localhost:42069
+
+**Key Files:**
+- indexer-api/ponder.config.ts - Chain/contract configuration
+- indexer-api/ponder.schema.ts - Database schema
+- indexer-api/src/MarketFactory.ts - MarketCreated handler
+- indexer-api/src/PredictionMarket.ts - Buy/Sell handlers
+
+**Next:** 03-02 Weather API integration with caching

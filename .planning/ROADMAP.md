@@ -57,7 +57,7 @@ Plans:
 - [x] 02-05-PLAN.md — Market discovery service (gap closure)
 
 ### Phase 3: Indexing & Backend
-**Goal**: Frontend has efficient GraphQL API for markets and positions, with order matching service
+**Goal**: Frontend has efficient GraphQL API for markets and positions, with weather data integration
 **Depends on**: Phase 2
 **Requirements**: MARKET-01, MARKET-08, WEATHER-01, WEATHER-02
 **Success Criteria** (what must be TRUE):
@@ -65,12 +65,12 @@ Plans:
   2. User can browse markets sorted by volume (hot markets first)
   3. Current weather conditions display for each market location
   4. Weather forecast displays for each market location
-**Plans**: TBD
+**Plans**: 3 plans in 2 waves
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md — Ponder indexer setup, schema, event handlers for markets/trades
+- [ ] 03-02-PLAN.md — Weather API integration with caching, custom Hono endpoints
+- [ ] 03-03-PLAN.md — API documentation and end-to-end verification
 
 ### Phase 4: Web Frontend MVP
 **Goal**: Users can connect wallet, browse markets, trade, and view portfolio through web interface
@@ -128,11 +128,11 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Smart Contract Foundation | 3/3 | Complete | 2026-01-28 |
 | 2. Oracle Infrastructure | 5/5 | Complete | 2026-01-28 |
-| 3. Indexing & Backend | 0/3 | Not started | - |
+| 3. Indexing & Backend | 0/3 | Planned | - |
 | 4. Web Frontend MVP | 0/3 | Not started | - |
 | 5. Social & Profiles | 0/3 | Not started | - |
 | 6. Gamification | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-28 — Phase 2 complete (5/5 plans, goal verified)*
+*Last updated: 2026-01-28 — Phase 3 planned (3 plans in 2 waves)*
