@@ -1,0 +1,27 @@
+{
+  "name": "indexer-api",
+  "version": "1.0.0",
+  "description": "Ponder indexer for Weather Man prediction markets",
+  "type": "module",
+  "engines": {
+    "node": ">=18.14"
+  },
+  "scripts": {
+    "dev": "ponder dev",
+    "start": "ponder start",
+    "serve": "ponder serve",
+    "typecheck": "ponder codegen && tsc --noEmit"
+  },
+  "keywords": ["ponder", "indexer", "prediction-market"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.4",
+    "node-cache": "^5.1.2",
+    "ponder": "^0.16.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "typescript": "^5.9.3"
+  }
+}
