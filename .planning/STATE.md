@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** Users can stake real money on weather predictions and build reputation as accurate forecasters
-**Current focus:** Phase 4 - Web Frontend MVP
+**Current focus:** Phase 5 - Social & Profiles
 
 ## Current Position
 
-Phase: 4 of 6 (Web Frontend MVP)
-Plan: 2 of 3 in current phase
-Status: In progress
-Last activity: 2026-01-29 - Completed 04-02-PLAN.md (Data Layer Hooks)
+Phase: 5 of 6 (Social & Profiles)
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-01-29 - Completed Phase 4 (Web Frontend MVP)
 
-Progress: [==============      ] 70%
+Progress: [===============     ] 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 4.8 min
-- Total execution time: 0.97 hours
+- Total plans completed: 14
+- Average duration: 4.6 min
+- Total execution time: 1.1 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [==============      ] 70%
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
 | 03-indexing-backend | 3 | 24 min | 8.0 min |
-| 04-web-frontend-mvp | 2 | 8 min | 4.0 min |
+| 04-web-frontend-mvp | 3 | 12 min | 4.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (4 min), 03-03 (15 min), 04-01 (5 min), 04-02 (3 min)
+- Last 5 plans: 03-03 (15 min), 04-01 (5 min), 04-02 (3 min), 04-03 (4 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -80,6 +80,10 @@ Recent decisions affecting current work:
 - [04-02]: Transform string responses to BigInt in hooks (GraphQL returns bigint as strings)
 - [04-02]: wagmi v2 useReadContract doesn't accept custom queryKey in query options
 - [04-02]: staleTime: 10s markets, 5s positions, 30s weather (balance freshness vs load)
+- [04-03]: Feature-based folder structure (features/markets, features/trading, features/portfolio)
+- [04-03]: Price calculation: yesPool * 100 / totalPool (0-100 cents display)
+- [04-03]: P&L: currentValue - costBasis with percentage display
+- [04-03]: Query invalidation on successful trades (markets, positions, markets-with-weather)
 
 ### Pending Todos
 
@@ -93,8 +97,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-29T04:08:59Z
-Stopped at: Completed 04-02-PLAN.md (Data Layer Hooks)
+Last session: 2026-01-29
+Stopped at: Completed Phase 4 (Web Frontend MVP)
 Resume file: None
 
 ## Phase 1 Summary
@@ -181,9 +185,9 @@ Resume file: None
 - [x] Current weather displays for each market location
 - [x] Weather forecast displays for each market location
 
-## Phase 4 Summary (In Progress)
+## Phase 4 Summary
 
-**Status:** 2/3 plans complete
+**Status:** Complete (3/3 plans, all success criteria verified)
 
 **Plan 04-01 Complete:** Project Setup and Wallet Connection
 - Vite + React + TypeScript project in web/
@@ -200,6 +204,13 @@ Resume file: None
 - useVault hooks for balance read and deposit/withdraw write
 - TanStack Query caching with configured staleTime
 
+**Plan 04-03 Complete:** Trading UI Components
+- Market browsing with MarketCard and MarketList
+- Trading form with YES/NO selection and transaction states
+- Market detail page at /markets/:id
+- Portfolio view with positions and P&L calculation
+- Feature-based folder structure (markets/, trading/, portfolio/)
+
 **Key Files:**
 - web/src/lib/wagmi.ts - Wagmi config for Base Sepolia
 - web/src/lib/contracts.ts - Contract ABIs and addresses
@@ -210,6 +221,19 @@ Resume file: None
 - web/src/hooks/usePositions.ts - Position fetching hooks
 - web/src/hooks/useMarketsWithWeather.ts - Weather integration hooks
 - web/src/hooks/useVault.ts - Vault interaction hooks
+- web/src/hooks/useTrade.ts - Trading hooks (useBuy, useSell)
+- web/src/features/markets/MarketCard.tsx - Market card component
+- web/src/features/markets/MarketList.tsx - Market list component
+- web/src/features/markets/MarketDetail.tsx - Market detail component
+- web/src/features/trading/TradeForm.tsx - Trading form component
+- web/src/features/portfolio/PositionCard.tsx - Position card with P&L
+- web/src/features/portfolio/PositionList.tsx - Position list component
 - web/src/App.tsx - Root component with providers
 - web/src/components/layout/Header.tsx - Navigation with ConnectButton
-- web/src/pages/Home.tsx, Markets.tsx, Portfolio.tsx - Page components
+- web/src/pages/Home.tsx, Markets.tsx, Market.tsx, Portfolio.tsx - Page components
+
+**Success Criteria Met:**
+- [x] Web app loads on desktop browsers
+- [x] Web app is mobile-responsive
+- [x] User can complete full trading flow (connect, browse, trade, view portfolio)
+- [x] Portfolio shows all positions with P&L

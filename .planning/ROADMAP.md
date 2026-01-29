@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Smart Contract Foundation** - Core contracts for markets, trading, and USDC custody
 - [x] **Phase 2: Oracle Infrastructure** - Weather data aggregation and automated market resolution
 - [x] **Phase 3: Indexing & Backend** - Event indexing, API layer, and off-chain services
-- [ ] **Phase 4: Web Frontend MVP** - Trading interface, wallet connection, portfolio management
+- [x] **Phase 4: Web Frontend MVP** - Trading interface, wallet connection, portfolio management
 - [ ] **Phase 5: Social & Profiles** - User profiles, following system, comments, sharing
 - [ ] **Phase 6: Gamification** - Leaderboards, streaks, achievements, reputation
 
@@ -84,9 +84,9 @@ Plans:
 **Plans**: 3 plans in 3 waves
 
 Plans:
-- [ ] 04-01-PLAN.md — Vite + React + wagmi/RainbowKit setup, responsive layout
-- [ ] 04-02-PLAN.md — Contract ABIs, GraphQL hooks, data layer
-- [ ] 04-03-PLAN.md — Market browsing, trading form, portfolio with P&L
+- [x] 04-01-PLAN.md — Vite + React + wagmi/RainbowKit setup, responsive layout
+- [x] 04-02-PLAN.md — Contract ABIs, GraphQL hooks, data layer
+- [x] 04-03-PLAN.md — Market browsing, trading form, portfolio with P&L
 
 ### Phase 5: Social & Profiles
 **Goal**: Users can create profiles, follow forecasters, comment on markets, and share predictions
@@ -129,10 +129,10 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 1. Smart Contract Foundation | 3/3 | Complete | 2026-01-28 |
 | 2. Oracle Infrastructure | 5/5 | Complete | 2026-01-28 |
 | 3. Indexing & Backend | 3/3 | Complete | 2026-01-29 |
-| 4. Web Frontend MVP | 0/3 | Planned | - |
+| 4. Web Frontend MVP | 3/3 | Complete | 2026-01-29 |
 | 5. Social & Profiles | 0/3 | Not started | - |
 | 6. Gamification | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 — Phase 4 planned (3 plans in 3 waves)*
+*Last updated: 2026-01-29 — Phase 4 complete (Web Frontend MVP)*
