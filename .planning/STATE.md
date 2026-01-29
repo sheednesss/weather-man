@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 4 of 6 (Web Frontend MVP)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-01-29 - Completed 04-01-PLAN.md (Project Setup and Wallet Connection)
+Last activity: 2026-01-29 - Completed 04-02-PLAN.md (Data Layer Hooks)
 
-Progress: [=============       ] 65%
+Progress: [==============      ] 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 5.0 min
-- Total execution time: 0.92 hours
+- Total plans completed: 12
+- Average duration: 4.8 min
+- Total execution time: 0.97 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [=============       ] 65%
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
 | 03-indexing-backend | 3 | 24 min | 8.0 min |
-| 04-web-frontend-mvp | 1 | 5 min | 5.0 min |
+| 04-web-frontend-mvp | 2 | 8 min | 4.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (5 min), 03-02 (4 min), 03-03 (15 min), 04-01 (5 min)
+- Last 5 plans: 03-02 (4 min), 03-03 (15 min), 04-01 (5 min), 04-02 (3 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -77,6 +77,9 @@ Recent decisions affecting current work:
 - [04-01]: react-router-dom v6 (not v7) for Node 18 compatibility
 - [04-01]: Tailwind v4 with @tailwindcss/vite plugin (not PostCSS)
 - [04-01]: ConnectButton.Custom for compact mobile wallet display
+- [04-02]: Transform string responses to BigInt in hooks (GraphQL returns bigint as strings)
+- [04-02]: wagmi v2 useReadContract doesn't accept custom queryKey in query options
+- [04-02]: staleTime: 10s markets, 5s positions, 30s weather (balance freshness vs load)
 
 ### Pending Todos
 
@@ -90,8 +93,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-29T04:03:09Z
-Stopped at: Completed 04-01-PLAN.md (Project Setup and Wallet Connection)
+Last session: 2026-01-29T04:08:59Z
+Stopped at: Completed 04-02-PLAN.md (Data Layer Hooks)
 Resume file: None
 
 ## Phase 1 Summary
@@ -180,7 +183,7 @@ Resume file: None
 
 ## Phase 4 Summary (In Progress)
 
-**Status:** 1/3 plans complete
+**Status:** 2/3 plans complete
 
 **Plan 04-01 Complete:** Project Setup and Wallet Connection
 - Vite + React + TypeScript project in web/
@@ -189,9 +192,24 @@ Resume file: None
 - Responsive layout with sticky header and mobile menu
 - React Router routes: /, /markets, /portfolio
 
+**Plan 04-02 Complete:** Data Layer Hooks
+- Contract ABIs extracted from compiled contracts (as const for type inference)
+- GraphQL client with graphql-request for Ponder queries
+- useMarkets, usePositions hooks with bigint transformation
+- useMarketsWithWeather hook for REST endpoint
+- useVault hooks for balance read and deposit/withdraw write
+- TanStack Query caching with configured staleTime
+
 **Key Files:**
 - web/src/lib/wagmi.ts - Wagmi config for Base Sepolia
+- web/src/lib/contracts.ts - Contract ABIs and addresses
+- web/src/lib/graphql.ts - GraphQL client
+- web/src/types/market.ts - Market and WeatherData types
+- web/src/types/position.ts - Position type
+- web/src/hooks/useMarkets.ts - Market fetching hooks
+- web/src/hooks/usePositions.ts - Position fetching hooks
+- web/src/hooks/useMarketsWithWeather.ts - Weather integration hooks
+- web/src/hooks/useVault.ts - Vault interaction hooks
 - web/src/App.tsx - Root component with providers
 - web/src/components/layout/Header.tsx - Navigation with ConnectButton
-- web/src/components/layout/Layout.tsx - Layout wrapper
 - web/src/pages/Home.tsx, Markets.tsx, Portfolio.tsx - Page components
