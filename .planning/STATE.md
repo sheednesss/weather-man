@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 4 of 6 (Web Frontend MVP)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-01-29 - Completed Phase 3 (Indexing & Backend)
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-01-29 - Completed 04-01-PLAN.md (Project Setup and Wallet Connection)
 
-Progress: [============        ] 60%
+Progress: [=============       ] 65%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: 5.0 min
-- Total execution time: 0.83 hours
+- Total execution time: 0.92 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [============        ] 60%
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
 | 03-indexing-backend | 3 | 24 min | 8.0 min |
+| 04-web-frontend-mvp | 1 | 5 min | 5.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-05 (4 min), 03-01 (5 min), 03-02 (4 min), 03-03 (15 min)
-- Trend: Stable (03-03 longer due to Node.js upgrade and debugging)
+- Last 5 plans: 03-01 (5 min), 03-02 (4 min), 03-03 (15 min), 04-01 (5 min)
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -72,6 +73,10 @@ Recent decisions affecting current work:
 - [03-02]: 15-minute cache TTL for weather data (balance freshness vs rate limits)
 - [03-02]: City coordinates as decimals for direct Open-Meteo API use
 - [03-02]: WMO weather codes mapped to human-readable descriptions
+- [04-01]: wagmi v2 + RainbowKit (not v3) for peer dependency compatibility
+- [04-01]: react-router-dom v6 (not v7) for Node 18 compatibility
+- [04-01]: Tailwind v4 with @tailwindcss/vite plugin (not PostCSS)
+- [04-01]: ConnectButton.Custom for compact mobile wallet display
 
 ### Pending Todos
 
@@ -81,11 +86,12 @@ None yet.
 
 - Node.js version issue RESOLVED - installed fnm and Node 20.20.0 for Ponder
 - Testnet deployment still requires funded wallet (deferred from Phase 1)
+- Node 18 works for Vite despite engine warnings
 
 ## Session Continuity
 
-Last session: 2026-01-29T03:27:55Z
-Stopped at: Completed 03-02-PLAN.md (Weather API integration)
+Last session: 2026-01-29T04:03:09Z
+Stopped at: Completed 04-01-PLAN.md (Project Setup and Wallet Connection)
 Resume file: None
 
 ## Phase 1 Summary
@@ -171,3 +177,21 @@ Resume file: None
 - [x] Markets can be sorted by volume (hot markets)
 - [x] Current weather displays for each market location
 - [x] Weather forecast displays for each market location
+
+## Phase 4 Summary (In Progress)
+
+**Status:** 1/3 plans complete
+
+**Plan 04-01 Complete:** Project Setup and Wallet Connection
+- Vite + React + TypeScript project in web/
+- wagmi v2 + RainbowKit for Base Sepolia wallet connection
+- Tailwind v4 with @tailwindcss/vite plugin
+- Responsive layout with sticky header and mobile menu
+- React Router routes: /, /markets, /portfolio
+
+**Key Files:**
+- web/src/lib/wagmi.ts - Wagmi config for Base Sepolia
+- web/src/App.tsx - Root component with providers
+- web/src/components/layout/Header.tsx - Navigation with ConnectButton
+- web/src/components/layout/Layout.tsx - Layout wrapper
+- web/src/pages/Home.tsx, Markets.tsx, Portfolio.tsx - Page components
