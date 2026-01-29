@@ -81,12 +81,12 @@ Plans:
   2. Web app is mobile-responsive (works on phone browsers)
   3. User can complete full trading flow: connect wallet, browse markets, place trade, view portfolio
   4. Portfolio shows all positions with P&L for each
-**Plans**: TBD
+**Plans**: 3 plans in 3 waves
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md — Vite + React + wagmi/RainbowKit setup, responsive layout
+- [ ] 04-02-PLAN.md — Contract ABIs, GraphQL hooks, data layer
+- [ ] 04-03-PLAN.md — Market browsing, trading form, portfolio with P&L
 
 ### Phase 5: Social & Profiles
 **Goal**: Users can create profiles, follow forecasters, comment on markets, and share predictions
@@ -129,10 +129,10 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 1. Smart Contract Foundation | 3/3 | Complete | 2026-01-28 |
 | 2. Oracle Infrastructure | 5/5 | Complete | 2026-01-28 |
 | 3. Indexing & Backend | 3/3 | Complete | 2026-01-29 |
-| 4. Web Frontend MVP | 0/3 | Not started | - |
+| 4. Web Frontend MVP | 0/3 | Planned | - |
 | 5. Social & Profiles | 0/3 | Not started | - |
 | 6. Gamification | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 — Phase 3 complete (3/3 plans)*
+*Last updated: 2026-01-29 — Phase 4 planned (3 plans in 3 waves)*
