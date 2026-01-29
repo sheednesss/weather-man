@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 3 of 6 (Indexing & Backend)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-01-29 - Completed 03-01-PLAN.md (Ponder indexer setup)
+Last activity: 2026-01-29 - Completed 03-02-PLAN.md (Weather API integration)
 
-Progress: [==========          ] 47%
+Progress: [===========         ] 53%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 4.2 min
-- Total execution time: 0.56 hours
+- Total plans completed: 9
+- Average duration: 4.1 min
+- Total execution time: 0.62 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [==========          ] 47%
 |-------|-------|-------|----------|
 | 01-smart-contract-foundation | 3 | 13 min | 4.3 min |
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
-| 03-indexing-backend | 1 | 5 min | 5.0 min |
+| 03-indexing-backend | 2 | 9 min | 4.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (3 min), 02-03 (4 min), 02-05 (4 min), 03-01 (5 min)
+- Last 5 plans: 02-03 (4 min), 02-05 (4 min), 03-01 (5 min), 03-02 (4 min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -69,6 +69,9 @@ Recent decisions affecting current work:
 - [03-01]: Factory pattern discovers PredictionMarket addresses from MarketCreated events
 - [03-01]: Volume tracks cumulative activity (buys + sells) for hot markets ranking
 - [03-01]: QuestionId decoding extracts cityId, bounds directly from bytes32 using bit shifts
+- [03-02]: 15-minute cache TTL for weather data (balance freshness vs rate limits)
+- [03-02]: City coordinates as decimals for direct Open-Meteo API use
+- [03-02]: WMO weather codes mapped to human-readable descriptions
 
 ### Pending Todos
 
@@ -80,8 +83,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-29T03:21:28Z
-Stopped at: Completed 03-01-PLAN.md (Ponder indexer setup)
+Last session: 2026-01-29T03:27:55Z
+Stopped at: Completed 03-02-PLAN.md (Weather API integration)
 Resume file: None
 
 ## Phase 1 Summary
@@ -130,7 +133,7 @@ Resume file: None
 
 ## Phase 3 Summary (In Progress)
 
-**Status:** 1/3 plans complete
+**Status:** 2/3 plans complete
 
 **Plan 03-01 Complete:** Ponder indexer setup
 - indexer-api/ project with Ponder 0.16.2
@@ -139,10 +142,19 @@ Resume file: None
 - Factory pattern auto-discovers new markets
 - GraphQL API auto-generated at http://localhost:42069
 
+**Plan 03-02 Complete:** Weather API integration
+- Weather fetching with 15-minute NodeCache TTL
+- City coordinates matching CityLib.sol (4 cities)
+- Custom Hono routes: /weather/:cityId, /weather, /markets-with-weather
+- WMO weather code mapping for descriptions
+
 **Key Files:**
 - indexer-api/ponder.config.ts - Chain/contract configuration
 - indexer-api/ponder.schema.ts - Database schema
 - indexer-api/src/MarketFactory.ts - MarketCreated handler
 - indexer-api/src/PredictionMarket.ts - Buy/Sell handlers
+- indexer-api/src/lib/weather.ts - Weather fetching with caching
+- indexer-api/src/lib/cities.ts - City coordinates
+- indexer-api/src/api/index.ts - Custom Hono routes
 
-**Next:** 03-02 Weather API integration with caching
+**Next:** 03-03 API documentation and testing
