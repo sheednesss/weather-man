@@ -1,10 +1,12 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { sessionMiddleware, CookieStore } from "hono-sessions";
 import { graphql } from "ponder";
 import { db } from "ponder:api";
 import schema from "ponder:schema";
 import { getWeather, getAllWeather, getCacheStats, type WeatherData } from "../lib/weather.js";
 import auth from "./auth.js";
+import social from "./social.js";
 
 /**
  * Custom Hono routes for Weather Man API
@@ -29,8 +31,34 @@ app.use(
   })
 );
 
+// Get session secret from environment (must be 32+ characters)
+const sessionSecret = process.env.SESSION_SECRET;
+if (!sessionSecret || sessionSecret.length < 32) {
+  console.warn(
+    "WARNING: SESSION_SECRET not set or too short. Using development default. Set SESSION_SECRET env var (32+ chars) in production."
+  );
+}
+
+// Configure session middleware with cookie store for social routes
+const store = new CookieStore();
+app.use(
+  "/social/*",
+  sessionMiddleware({
+    store,
+    encryptionKey: sessionSecret || "dev-session-secret-must-be-32-chars!",
+    cookieOptions: {
+      sameSite: "Lax",
+      path: "/",
+      httpOnly: true,
+    },
+  })
+);
+
 // Mount auth routes at /auth
 app.route("/auth", auth);
+
+// Mount social routes at /social (after session middleware)
+app.route("/social", social);
 
 // Mount Ponder's auto-generated GraphQL API at /graphql and root
 app.use("/graphql", graphql({ db, schema }));
