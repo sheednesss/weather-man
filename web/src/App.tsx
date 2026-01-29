@@ -7,6 +7,7 @@ import { config } from './lib/wagmi'
 import { Layout } from './components/layout/Layout'
 import { Home } from './pages/Home'
 import { Markets } from './pages/Markets'
+import { Market } from './pages/Market'
 import { Portfolio } from './pages/Portfolio'
 
 const queryClient = new QueryClient()
@@ -21,6 +22,7 @@ function App() {
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path="markets" element={<Markets />} />
+                <Route path="markets/:id" element={<Market />} />
                 <Route path="portfolio" element={<Portfolio />} />
               </Route>
             </Routes>
