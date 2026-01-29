@@ -1,11 +1,13 @@
+import { MarketList } from '@/features/markets/MarketList'
+
 export function Markets() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Markets</h1>
-      <div className="bg-gray-800 rounded-lg p-6 text-center text-gray-400">
-        <p>Market list will be displayed here.</p>
-        <p className="text-sm mt-2">Coming soon: Temperature prediction markets for major cities.</p>
-      </div>
+    <div className="py-6">
+      <h1 className="text-2xl font-bold mb-4 text-gray-900">Markets</h1>
+      <p className="text-gray-600 mb-6">
+        Browse prediction markets sorted by volume. Click a market to trade.
+      </p>
+      <MarketList />
     </div>
   )
 }
