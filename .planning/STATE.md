@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-28)
 ## Current Position
 
 Phase: 5 of 6 (Social & Profiles)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-29 - Completed 05-03-PLAN.md
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-01-29 - Completed 05-04-PLAN.md
 
-Progress: [==================  ] 89%
+Progress: [===================□] 95%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: 4.3 min
-- Total execution time: 1.2 hours
+- Total plans completed: 18
+- Average duration: 4.4 min
+- Total execution time: 1.3 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [==================  ] 89%
 | 02-oracle-infrastructure | 4 | 16 min | 4.0 min |
 | 03-indexing-backend | 3 | 24 min | 8.0 min |
 | 04-web-frontend-mvp | 3 | 12 min | 4.0 min |
-| 05-social-profiles | 3 | 9 min | 3.0 min |
+| 05-social-profiles | 4 | 17 min | 4.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-03 (4 min), 05-01 (5 min), 05-02 (2 min), 05-03 (2 min)
-- Trend: Accelerating
+- Last 5 plans: 05-01 (5 min), 05-02 (2 min), 05-03 (2 min), 05-04 (8 min)
+- Trend: Consistent
 
 *Updated after each plan completion*
 
@@ -96,6 +96,10 @@ Recent decisions affecting current work:
 - [05-03]: API client uses credentials: 'include' for cross-origin cookie support
 - [05-03]: SIWE message uses Base Sepolia chainId 84532
 - [05-03]: Session query 30s staleTime for balance of freshness and API load
+- [05-04]: react-share library for Twitter/X sharing (simple API, handles intent URLs)
+- [05-04]: ProfileCard component reused across feed, comments, and profile pages
+- [05-04]: Query invalidation on follow/unfollow for real-time count updates
+- [05-04]: ShareButton appears after successful trade (not before)
 
 ### Pending Todos
 
@@ -110,7 +114,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 05-03-PLAN.md
+Stopped at: Completed 05-04-PLAN.md (Phase 5 complete)
 Resume file: None
 
 ## Phase 1 Summary
@@ -249,3 +253,58 @@ Resume file: None
 - [x] Web app is mobile-responsive
 - [x] User can complete full trading flow (connect, browse, trade, view portfolio)
 - [x] Portfolio shows all positions with P&L
+
+## Phase 5 Summary
+
+**Status:** Complete (4/4 plans, all success criteria verified)
+
+**Plan 05-01 Complete:** Database and Auth Foundation
+- Drizzle ORM with SQLite for social data storage
+- Schema: profiles, follows, comments, predictions tables
+- SIWE authentication with encrypted cookie sessions
+- Wallet address verification via viem verifyMessage
+
+**Plan 05-02 Complete:** Social API Routes
+- Profile CRUD routes (GET/PUT /social/profiles/:address)
+- Follow system routes (POST/DELETE /social/follow/:address)
+- Comments routes (GET/POST /social/markets/:marketId/comments)
+- Predictions routes (GET/POST /social/markets/:marketId/predictions)
+- Feed route (GET /social/feed) for followed users' predictions
+
+**Plan 05-03 Complete:** Frontend SIWE Authentication
+- API client with credentials: 'include' for cookie support
+- useAuth hook managing session state
+- SignInButton component with SIWE signature flow
+- Session persistence across page refreshes
+
+**Plan 05-04 Complete:** Frontend Social Components
+- Social data hooks (useProfile, useFollow, useComments, usePredictions)
+- Profile view/edit with ProfilePage and ProfileCard components
+- Follow/unfollow with FollowButton component
+- Market comments with CommentList and CommentForm
+- Prediction explanations in TradeForm
+- Twitter/X sharing with react-share ShareButton
+- Feed page for followed users' predictions
+- Routes: /profile/:address, /feed
+
+**Key Files:**
+- indexer-api/src/db/schema.ts - Drizzle social schema
+- indexer-api/src/db/index.ts - Database connection
+- indexer-api/src/api/social.ts - Social API routes
+- indexer-api/src/api/auth.ts - SIWE authentication routes
+- web/src/lib/api.ts - API client with credentials
+- web/src/hooks/useAuth.ts - Authentication hook
+- web/src/hooks/useProfile.ts - Profile hooks
+- web/src/hooks/useFollow.ts - Follow hooks
+- web/src/hooks/useComments.ts - Comments hooks
+- web/src/hooks/usePredictions.ts - Predictions and feed hooks
+- web/src/features/social/*.tsx - Social UI components
+
+**Success Criteria Met:**
+- [x] User can create profile with display name (PROFILE-01)
+- [x] User can view other users' profiles (PROFILE-02)
+- [x] User can follow other forecasters (SOCIAL-01)
+- [x] User can see feed of followed forecasters' predictions (SOCIAL-02)
+- [x] User can comment on markets (SOCIAL-03)
+- [x] User can share prediction to Twitter/X (SOCIAL-04)
+- [x] User can write explanation with prediction (PREDICT-01)
