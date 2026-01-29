@@ -9,6 +9,8 @@ import { Home } from './pages/Home'
 import { Markets } from './pages/Markets'
 import { Market } from './pages/Market'
 import { Portfolio } from './pages/Portfolio'
+import { Profile } from './pages/Profile'
+import { Feed } from './pages/Feed'
 
 const queryClient = new QueryClient()
 
@@ -24,6 +26,8 @@ function App() {
                 <Route path="markets" element={<Markets />} />
                 <Route path="markets/:id" element={<Market />} />
                 <Route path="portfolio" element={<Portfolio />} />
+                <Route path="profile/:address" element={<Profile />} />
+                <Route path="feed" element={<Feed />} />
               </Route>
             </Routes>
           </BrowserRouter>

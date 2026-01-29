@@ -5,6 +5,8 @@ import type { WeatherData } from '@/types/market'
 import { getCityDisplayName, formatTemperature } from '@/types/market'
 import { USDC_DECIMALS } from '@/lib/contracts'
 import { TradeForm } from '@/features/trading/TradeForm'
+import { CommentList } from '@/features/social/CommentList'
+import { CommentForm } from '@/features/social/CommentForm'
 
 interface MarketDetailProps {
   market: Market
@@ -98,6 +100,7 @@ export function MarketDetail({ market, weather }: MarketDetailProps) {
             marketAddress={market.id}
             yesPrice={yesPrice}
             noPrice={noPrice}
+            marketQuestion={`${getCityDisplayName(market.cityId)}: ${lowerTemp}-${upperTemp}F`}
           />
         </div>
       )}
@@ -107,6 +110,15 @@ export function MarketDetail({ market, weather }: MarketDetailProps) {
           This market has been resolved. Trading is closed.
         </div>
       )}
+
+      {/* Comments section */}
+      <div className="bg-white rounded-lg border border-gray-200 p-6 mt-6">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Discussion</h2>
+        <div className="space-y-6">
+          <CommentForm marketId={market.id} />
+          <CommentList marketId={market.id} />
+        </div>
+      </div>
     </div>
   )
 }

@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { SignInButton } from '@/features/auth/SignInButton'
+import { useAuth } from '@/hooks/useAuth'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { isAuthenticated, address } = useAuth()
 
   return (
     <header className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800">
@@ -37,6 +39,30 @@ export function Header() {
             >
               Portfolio
             </NavLink>
+            {isAuthenticated && (
+              <>
+                <NavLink
+                  to="/feed"
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors ${
+                      isActive ? 'text-white' : 'text-gray-400 hover:text-white'
+                    }`
+                  }
+                >
+                  Feed
+                </NavLink>
+                <NavLink
+                  to={`/profile/${address}`}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors ${
+                      isActive ? 'text-white' : 'text-gray-400 hover:text-white'
+                    }`
+                  }
+                >
+                  Profile
+                </NavLink>
+              </>
+            )}
           </div>
 
           {/* Auth + Connect Buttons - always visible */}
@@ -119,6 +145,32 @@ export function Header() {
               >
                 Portfolio
               </NavLink>
+              {isAuthenticated && (
+                <>
+                  <NavLink
+                    to="/feed"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `text-sm font-medium transition-colors ${
+                        isActive ? 'text-white' : 'text-gray-400 hover:text-white'
+                      }`
+                    }
+                  >
+                    Feed
+                  </NavLink>
+                  <NavLink
+                    to={`/profile/${address}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `text-sm font-medium transition-colors ${
+                        isActive ? 'text-white' : 'text-gray-400 hover:text-white'
+                      }`
+                    }
+                  >
+                    Profile
+                  </NavLink>
+                </>
+              )}
             </div>
           </div>
         )}
