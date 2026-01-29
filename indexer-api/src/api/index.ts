@@ -1,8 +1,10 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { graphql } from "ponder";
 import { db } from "ponder:api";
 import schema from "ponder:schema";
 import { getWeather, getAllWeather, getCacheStats, type WeatherData } from "../lib/weather.js";
+import auth from "./auth.js";
 
 /**
  * Custom Hono routes for Weather Man API
@@ -10,9 +12,25 @@ import { getWeather, getAllWeather, getCacheStats, type WeatherData } from "../l
  * These routes extend Ponder's auto-generated GraphQL API with:
  * - Weather data endpoints (with caching)
  * - Combined markets + weather endpoints
+ * - SIWE authentication
  */
 
 const app = new Hono();
+
+// CORS middleware - must be before other routes
+// Allow credentials for session cookies
+app.use(
+  "*",
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:3000"],
+    credentials: true,
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// Mount auth routes at /auth
+app.route("/auth", auth);
 
 // Mount Ponder's auto-generated GraphQL API at /graphql and root
 app.use("/graphql", graphql({ db, schema }));
