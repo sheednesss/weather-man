@@ -101,8 +101,8 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md — SQLite database with Drizzle ORM, SIWE authentication
-- [ ] 05-02-PLAN.md — Social API routes (profiles, follows, comments, predictions, feed)
-- [ ] 05-03-PLAN.md — Frontend SIWE authentication with useAuth hook and SignInButton
+- [x] 05-02-PLAN.md — Social API routes (profiles, follows, comments, predictions, feed)
+- [x] 05-03-PLAN.md — Frontend SIWE authentication with useAuth hook and SignInButton
 - [ ] 05-04-PLAN.md — Social UI components (profiles, follows, comments, sharing)
 
 ### Phase 6: Gamification
@@ -131,9 +131,9 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Oracle Infrastructure | 5/5 | Complete | 2026-01-28 |
 | 3. Indexing & Backend | 3/3 | Complete | 2026-01-29 |
 | 4. Web Frontend MVP | 3/3 | Complete | 2026-01-29 |
-| 5. Social & Profiles | 1/4 | In progress | - |
+| 5. Social & Profiles | 3/4 | In progress | - |
 | 6. Gamification | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-28*
-*Last updated: 2026-01-29 — Plan 05-01 complete*
+*Last updated: 2026-01-29 — Plan 05-03 complete*
